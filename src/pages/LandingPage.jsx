@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
+import genzImg from '../assets/awareness/genz.jpg'
+import homemakerImg from '../assets/awareness/homemaker.jpg'
+import retiredImg from '../assets/awareness/retired.jpg'
+import jobSeekerImg from '../assets/awareness/job-seeker.png'
 
-// Drop insurance awareness images into src/assets/awareness/ and list them here,
-// e.g. import roadSafety from '../assets/awareness/road-safety.jpg'
-const awarenessImages = []
+const awarenessImages = [
+  { src: genzImg, label: 'Young & Digital' },
+  { src: homemakerImg, label: 'Family First' },
+  { src: retiredImg, label: 'Secure Retirement' },
+  { src: jobSeekerImg, label: 'Career Starter' },
+]
 
 export default function LandingPage() {
   return (
@@ -61,25 +68,15 @@ export default function LandingPage() {
           </Link>
         </div>
 
-        <div className="rounded-2xl overflow-hidden bg-navy-50 min-h-[320px]">
-          {awarenessImages.length > 0 ? (
-            <img
-              src={awarenessImages[0]}
-              alt="Insurance awareness"
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="h-full flex flex-col items-center justify-center text-center p-8">
-              <svg viewBox="0 0 24 24" className="w-14 h-14 text-navy-300" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg>
-              <p className="mt-3 text-sm font-medium text-navy-700">Insurance Awareness</p>
-              <p className="text-xs text-slate-400 mt-1 max-w-[220px]">
-                Awareness images will appear here
-              </p>
+        <div className="grid grid-cols-2 gap-3">
+          {awarenessImages.map((item) => (
+            <div key={item.label} className="relative rounded-2xl overflow-hidden bg-navy-50 aspect-square">
+              <img src={item.src} alt={item.label} className="w-full h-full object-cover" />
+              <span className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900/85 to-transparent text-gold-400 text-base sm:text-lg font-bold px-3 py-3">
+                {item.label}
+              </span>
             </div>
-          )}
+          ))}
         </div>
       </div>
     </div>
