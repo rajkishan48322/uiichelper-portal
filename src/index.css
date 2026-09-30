@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #eef2f9;
+  --color-navy-100: #d7e1f2;
+  --color-navy-200: #aec3e6;
+  --color-navy-400: #3f5f9e;
+  --color-navy-600: #14357a;
+  --color-navy-700: #0d2a5c;
+  --color-navy-800: #081c3f;
+  --color-navy-900: #051229;
+  --color-gold-300: #ffe08a;
+  --color-gold-400: #ffcc33;
+  --color-gold-500: #f5b400;
+  --color-gold-600: #d99a00;
+}
+
+body {
+  margin: 0;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.otp-box {
+  @apply w-10 h-12 text-center text-lg font-semibold border border-navy-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600;
+}
